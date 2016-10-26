@@ -14,7 +14,7 @@
  *
  * Examples:
  * One-shot model:
- *  User: "Alexa, ask coffeetime Geek for a coffeetime fact"
+ *  User: "Alexa, ask coffeetime  for a coffeetime fact"
  *  Alexa: "Here's your coffeetime fact: ..."
  */
 
@@ -38,7 +38,7 @@ var FACTS = [
 var AlexaSkill = require('./AlexaSkill');
 
 /**
- * coffeetimeGeek is a child of AlexaSkill.
+ * coffeetime is a child of AlexaSkill.
  * To read more about inheritance in JavaScript, see the link below.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
@@ -112,7 +112,7 @@ function handleNewFactRequest(response) {
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the coffeetimeGeek skill.
+    // Create an instance of the coffeetime skill.
     var fact = new Fact();
     fact.execute(event, context);
 };
