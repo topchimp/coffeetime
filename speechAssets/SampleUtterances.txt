@@ -1,0 +1,7 @@
+GetNewFactIntent tell me who is next
+GetNewFactIntent tell me who's next
+GetNewFactIntent who's next
+GetNewFactIntent who is next
+GetNewFactIntent who's turn is it
+GetNewFactIntent list members
+GetNewFactIntent list people
