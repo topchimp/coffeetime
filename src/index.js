@@ -105,7 +105,7 @@ function handleNewFactRequest(response) {
     var randomFact = FACTS[factIndex];
 
     // Create speech output
-    var speechOutput = "It's: " + randomFact + "turn.";
+    var speechOutput = "It's: " + randomFact + "'s turn.";
     var cardTitle = "Who's round";
     response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
