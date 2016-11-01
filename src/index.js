@@ -14,19 +14,19 @@
  *
  * Examples:
  * One-shot model:
- *  User: "Alexa, ask coffeetime  for a coffeetime fact"
- *  Alexa: "Here's your coffeetime fact: ..."
+ *  User: "Alexa, ask coffeetime who's turn it is"
+ *  Alexa: "It's Scott's turn."
  */
 
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID =  undefined; //amzn1.echo-sdk-ams.app.amzn1.ask.skill.a411b89a-d4da-480f-8e7d-d123adc27b30; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 
 /**
  * Array containing coffeetime facts.
  */
-var FACTS = [
+var PEOPLE = [
     "Scott",
     "Ed",
     "Pete"
@@ -58,7 +58,7 @@ Fact.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest,
 
 Fact.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    handleNewFactRequest(response);
+    // Any initial request - e.g. handleWhosRoundRequest(response);
 };
 
 /**
@@ -70,18 +70,18 @@ Fact.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, ses
 };
 
 Fact.prototype.intentHandlers = {
-    "GetNewFactIntent": function (intent, session, response) {
-        handleNewFactRequest(response);
+    "WhosRound": function (intent, session, response) {
+        handleWhosRoundRequest(response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        // GetNewFactIntent tell me who is next
-        // GetNewFactIntent tell me who's next
-        // GetNewFactIntent who's next
-        // GetNewFactIntent who is next
-        // GetNewFactIntent who's turn is it
-        // GetNewFactIntent list members
-        // GetNewFactIntent list people
+        // WhosRound tell me who is next
+        // WhosRound tell me who's next
+        // WhosRound who's next
+        // WhosRound who is next
+        // WhosRound who's turn is it
+        // WhosRound list members
+        // WhosRound list people
         response.ask("You can say tell me who is next, or, who's turn is it, you can say exit... What can I help you with?", "What can I help you with?");
     },
 
@@ -99,10 +99,10 @@ Fact.prototype.intentHandlers = {
 /**
  * Gets a random new fact from the list and returns to the user.
  */
-function handleNewFactRequest(response) {
+function handleWhosRoundRequest(response) {
     // Get a random coffeetime fact from the coffeetime facts list
-    var factIndex = Math.floor(Math.random() * FACTS.length);
-    var randomFact = FACTS[factIndex];
+    var factIndex = Math.floor(Math.random() * PEOPLE.length);
+    var randomFact = PEOPLE[factIndex];
 
     // Create speech output
     var speechOutput = "It's: " + randomFact + "'s turn.";
